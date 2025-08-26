@@ -1,0 +1,12 @@
+
+<header>
+<nav>
+    <a href="{% url 'index' %}">خانه <span class="icon"></span></a>
+    <a href="#services" >خدمات <span class="icon"></span></a>
+    <a href="{% url 'article_list' %}">مقالات <span class="icon"></span></a>
+    <a href="{% url 'contactus' %}">تماس با ما <span class="icon"></span></a>
+</nav>
+<div class="logo">
+    {{ site_set.office_name }}
+</div>
+</header>

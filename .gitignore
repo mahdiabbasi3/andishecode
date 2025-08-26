@@ -1,0 +1,30 @@
+# Python bytecode
+pycache/
+*.py[cod]
+
+# Database
+db.sqlite3
+
+# Django static and media
+staticfiles/
+media/
+
+# Environment variables
+.env
+*.env
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Backup files
+*.bak
+*.swp
+*.tmp
+*.orig

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسلایدر نمونه کار</title>
+    <link rel="stylesheet" href="{% static '/css/product.css' %}">
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="{% static 'images/bener.jpg' %}" alt="نمونه کار 1">
+                <div class="caption">نمونه کار 1</div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'images/fashion.jpg' %}" alt="نمونه کار 2">
+                <div class="caption">نمونه کار 2</div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'images/web-application.gif' %}" alt="نمونه کار 3">
+                <div class="caption">نمونه کار 3</div>
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script src="{% static '/js/product.js' %}"></script>
+</body>
+</html>

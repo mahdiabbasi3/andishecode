@@ -1,0 +1,18 @@
+{% load static %}
+{%load render_partial %}
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+{% include 'shared/header_refrence.html' %}
+
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+{% render_partial 'home_module.views.headersite' %}
+    {% block content %}
+    {% endblock %}
+{% render_partial 'home_module.views.footersite' %}
+{% include 'shared/footer_refrence.html' %}
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends 'shared/_layout.html' %}
+{% load thumbnail %}
+
+{% block title %}
+	مقالات
+{% endblock %}
+{% block content %}
+
+<section class="articles-contact">
+  <div class="container">
+    <!-- بخش مقالات -->
+    <h2> مقالات</h2>
+    <div class="articles-grid">
+    {% for item in articles %}
+        <div class="article-card">
+            <img src="{{ item.image.url }}" alt="Article 1">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.short_desc }}</p>
+            <a href="{{ item.slug }}">مطالعه بیشتر</a>
+        </div>
+
+     {% endfor %}
+{#      <div class="article-card">#}
+{#        <img src="/images/seo.png" alt="Article 2">#}
+{#        <h3>بهینه‌سازی سرعت سایت</h3>#}
+{#        <p>ترفندهایی برای افزایش سرعت و تجربه بهتر کاربران در سایت شما.</p>#}
+{#        <a href="#">مطالعه بیشتر</a>#}
+{#      </div>#}
+{#      <div class="article-card">#}
+{#        <img src="/images/uiux.webp" alt="Article 3">#}
+{#        <h3>طراحی UI/UX جذاب</h3>#}
+{#        <p>ایده‌ها و تکنیک‌هایی برای ساخت تجربه کاربری و رابط کاربری حرفه‌ای.</p>#}
+{#        <a href="#">مطالعه بیشتر</a>#}
+{#      </div>#}
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

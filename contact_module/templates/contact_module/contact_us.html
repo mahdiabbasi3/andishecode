@@ -1,0 +1,63 @@
+{% extends 'shared/_layout.html' %}
+{% block title %}
+    تماس با ما
+{% endblock %}
+{% block content %}
+<section class="contact-section container">
+    <div class="row g-5">
+        <!-- فرم تماس -->
+        <div class="col-lg-6">
+            <div class="contact-form">
+                <h2>تماس با ما</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        {{ form.name.label_tag }}
+                        {{ form.name }}
+                    </div>
+                    <div class="mb-4">
+                        {{ form.phone.label_tag }}
+                        {{ form.phone }}
+                    </div>
+                    <div class="mb-4">
+                        {{ form.message.label_tag }}
+                        {{ form.message }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">ارسال پیام</button>
+                </form>
+
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                {% if messages %}
+                   <script>
+                       {% for message in messages %}
+                           Swal.fire({
+                               icon:'success',
+                               title:'{{ message }}',
+                               showConfirmButton:false,
+                               timer:4000
+                           });
+                       {% endfor %}
+                   </script>
+                {% endif %}
+            </div>
+        </div><!-- اطلاعات تماس -->
+    <div class="col-lg-6">
+        <div class="contact-info">
+            <h2>اطلاعات تماس</h2>
+            {% if contact %}
+                <p><i class="bi bi-telephone-fill"></i> <a href="tell{{ contact.phone }}"></a>{{ contact.phone }}</p>
+                {% if contact.email %}
+                    <p><i class="bi bi-envelope-fill"></i> {{ contact.email }}</p>
+                {% endif %}
+                {% if contact.message %}
+                    <p><i class="bi bi-geo-alt-fill"></i> {{ contact.message }}</p>
+                {% endif %}
+            {% else %}
+                <p>اطلاعات تماس موجود نیست.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</section>
+{% endblock %}

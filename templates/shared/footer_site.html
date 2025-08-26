@@ -1,0 +1,77 @@
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Left -->
+    <div class="footer-left">
+      <h2 class="logo">{{ site_set.office_name }}</h2>
+      <p>{{ site_set.footer_about|linebreaks }}</p>
+    </div>
+
+    <!-- Middle -->
+    <div class="footer-middle">
+      <h3>لینک‌های مفید</h3>
+      <ul>
+        <li><a href="{% url 'index' %}">خانه</a></li>
+        <li><a href="{% url 'article_list' %}">مقالات</a></li>
+        <li><a href="#services">خدمات</a></li>
+        <li><a href="{% url 'contactus' %}">تماس با ما</a></li>
+      </ul>
+    </div>
+
+    <!-- Right -->
+    <div class="footer-right">
+      <h3>ما را دنبال کنید</h3>
+        <div class="social-icons">
+        {% for social in social %}
+                <a href="{{ social.url }}"><i class="">{{ social.icon }}</i></a>
+        {% endfor %}
+  
+{##}
+{#        <a href="#"><i class="fab fa-instagram"></i></a>#}
+{#        <a href="#"><i class="fab fa-linkedin"></i></a>#}
+{#        <a href="#"><i class="fab fa-github"></i></a>#}
+      </div>
+
+
+{#     <div class="footer-section">#}
+{#         <h3> مجوز ها</h3>#}
+{#         <ul>#}
+{#             <li><a href="#">مجوز 1</a></li>#}
+{#             <li><a href="#">مجوز 1</a></li>#}
+{#         </ul>#}
+{#     </div>#}
+
+{#        <div class="footer-left">#}
+{#      <h3>لینک‌های مفید</h3>#}
+{#      <ul>#}
+{#        <li><a href="#">خانه</a></li>#}
+{#        <li><a href="#">مقالات</a></li>#}
+{#        <li><a href="#">خدمات</a></li>#}
+{#        <li><a href="#">تماس با ما</a></li>#}
+{#      </ul>#}
+{#    </div>#}
+    </div>
+        <div class="footer-licenses">
+            <h3>مجوزها</h3>
+            <ul>
+                {% for license in license %}
+                    <li>
+                        <a href="{{ license.url }}">
+                            {% if license.image %}
+                                <img src="{{ license.image.url }}" alt="{{ license.name }}" style="width: 90px; height: auto; margin-right: 10px;">
+                            {% endif %}
+                            {{ license.name }}
+                        </a>
+                    </li>
+
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+  <div class="footer-bottom">
+    <p>©کلیه حقوق متعلق به andishecode.ir  میباشد</p>
+  </div>
+</footer>

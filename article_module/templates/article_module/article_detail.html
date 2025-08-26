@@ -1,0 +1,49 @@
+{% extends 'shared/_layout.html' %}
+{% load jalali_tags %}
+
+{% block title %}
+
+{% endblock %}
+{% block content %}
+	   <div class="article">
+
+        <!-- عنوان -->
+        <h1 class="article__title">{{ article.title }}</h1>
+           <br>
+        <!-- اطلاعات مقاله -->
+        <div class="article__meta">
+{#            <span>✍️ نویسنده: علی</span>#}
+            <span>📅 تاریخ: {{ article.created_at|to_jalali:"%Y/%m/%d" }}</span>
+{#            <span>📂 دسته‌بندی: برنامه‌نویسی</span>#}
+        </div>
+           <br>
+        <!-- تصویر شاخص -->
+        <div class="article__image">
+            <img src="{{ article.image.url }}" alt="عنوان مقاله">
+        </div>
+
+        <!-- متن مقاله -->
+        <div class="article__content">
+            <br>
+            <p>
+
+                {{ article.short_desc }}
+            </p>
+
+
+               {{ article.content|safe}}
+
+
+        </div>
+
+        <!-- برچسب‌ها -->
+        <div class="article__tags">
+            <strong>برچسب‌ها:</strong>
+            <span>#جنگو</span>
+            <span>#وب</span>
+            <span>#پایتون</span>
+        </div>
+
+    </div>
+{% endblock %}
+

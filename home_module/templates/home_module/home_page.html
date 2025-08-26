@@ -1,0 +1,110 @@
+{% extends 'shared/_layout.html' %}
+{% load static %}
+{% load  render_partial %}
+{% load thumbnail %}
+
+{% block content %}
+	<title>بنر سایت</title>
+<div class="banner">
+    <h1>{{ site_set.banner_title }}</h1>
+</div>
+
+<section class="about">
+  <div class="container">
+    <h2>{{ site_set.about_title }}</h2>
+    <p>{{ site_set.about_description1|linebreaks }}</p>
+    <div class="about-img-wrapper">
+        {% thumbnail site_set.about_image "760x650" quality=100 crop='center' as im%}
+                <img src="{{ im.url }}">
+        {% endthumbnail %}
+{#      <img src="{% thumbnail site_set.about_image 'product_medium' %}" alt="Team" class="about-img">#}
+{#      <img src="{{ site_set.about_image.url }}" alt="Team" class="about-img">#}
+    </div>
+  </div>
+</section>
+
+<section id="services" >
+<section class="pricing-section">
+  <h2>پلن‌های ما</h2>
+  <div class="pricing-container">
+  {% for plan in plan %}
+
+
+    <div class="pricing-card">
+{#      <div class="icon">🌀</div>#}
+      <h3>{{ plan.title }}</h3>
+      <p class="price">{{ plan.get_price_type }} </p>
+      <ul>
+          {% for item in plan.features.all %}
+              <li>{{ item.text|linebreaks }}</li>
+          {% empty %}
+              <li>موردی برای این پلن وجود ندارد</li>
+
+          {% endfor %}
+      </ul>
+      <a href="{% url 'contactus' %}" class="btn">انتخاب پلن</a>
+    </div>
+  {% empty %}
+      <li>پلن فعالی وجود ندارد</li>
+   {% endfor %}
+
+
+  </div>
+</section>
+</section>
+
+
+{#{% render_partial 'product_module.views.show_example' %}#}
+<div class="centered-text">
+    نمونه کارها
+</div>
+<div class="portfolio">
+{% for item in product %}
+	 <div class="portfolio-item web">
+        <img src="{{ item.image.url }}" alt="{{ item.title }}">
+        <div class="overlay">{{ item.description }}</div>
+    </div>
+{% endfor %}
+
+
+</div>
+
+
+
+
+    <br>
+    <br>
+<section class="articles-contact">
+  <div class="container">
+    <!-- بخش مقالات -->
+    <h2>آخرین مقالات</h2>
+    <div class="articles-grid">
+        {% for article in lasted_article %}
+          <div class="article-card">
+{#            <img src="{{ article.image.url }}" alt="Article 1">#}
+              {% thumbnail article.image "680x418" quality=100 crop='center' as im%}
+                          <img src="{{ im.url }}">
+              {% endthumbnail %}
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.short_desc }}</p>
+            <a href="{% url 'article_detail' article.slug %}">مطالعه بیشتر</a>
+          </div>
+        {% endfor %}
+
+
+    </div>
+  </div>
+{##}
+{#    <!-- بخش تماس با ما -->#}
+{#    <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">تماس با ما</h2>#}
+{#    <form class="contact-form">#}
+{#      <input type="text" placeholder="نام شما" required>#}
+{#      <input type="email" placeholder="ایمیل شما" required>#}
+{#      <textarea placeholder="پیام شما" required></textarea>#}
+{#      <button type="submit">ارسال پیام</button>#}
+{#    </form>#}
+{#  </div>#}
+</section>
+
+
+{% endblock %}
