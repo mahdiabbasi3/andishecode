@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>صفحه پیدا نشد</title>
+    <link rel="stylesheet" href="{% static 'css/404.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>۴۰۴</h1>
+        <p>متأسفیم، صفحه‌ای که دنبالش بودید پیدا نشد.</p>
+        <a href="{% url 'index' %}">بازگشت به صفحه اصلی</a>
+    </div>
+</body>
+</html>
